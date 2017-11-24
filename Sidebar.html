@@ -46,7 +46,7 @@
             Click above to run the Pre-SNE checker.
         </div>
     </div>
-    
+
     <div class="sidebar bottom">
       <img alt="Crimson" class="logo" src="https://s3.amazonaws.com/static.thecrimson.com/images/seal.jpg" width="27" height="27">
       <span class="gray branding-text">Crimson Pre-SNE by Brian Yu</span>
@@ -62,8 +62,6 @@
        */
       $(function() {
         $('#pre-sne').click(preSNE);
-        google.script.run.withSuccessHandler(loadPreferences)
-            .withFailureHandler(showError).getPreferences();
       });
 
       /**
@@ -72,6 +70,7 @@
        */
       function preSNE() {
         $('#error').remove();
+        $('#contents').html('Running Pre-SNE...');
         google.script.run
             .withSuccessHandler(
               function(result, element) {
