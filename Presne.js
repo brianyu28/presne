@@ -1,6 +1,6 @@
 /*
  * Pre-SNE v0.0.0
- * Code.js / Code.gs
+ * Presne.js / Code.gs
  */
 
 function onOpen(e) {
@@ -61,6 +61,7 @@ function getCorrections(text) {
 
     // First reference errors.
     check(errors, firstReference(text, 'Administrative Board', 'Ad Board'));
+    check(errors, firstReference(text, 'Harvard University Dining Services', 'HUDS'));
     check(errors, firstReference(text, 'Harvard Lampoon, a semi-secret Sorrento Square social organization that used to occasionally publish a so-called humor magazine', 'Lampoon'));
     check(errors, firstReference(text, 'Undergraduate Council', 'UC'));
     check(errors, firstReference(text, 'University Health Services', 'UHS'));
@@ -79,7 +80,7 @@ function getCorrections(text) {
     check(errors, shouldBe(text, '%', 'percent', null));
     check(errors, shouldBe(text, 'Native American', 'American Indian', null));
     check(errors, shouldBe(text, 'utility entry port', 'manhole', null));
-    check(errors, shouldBe(text, 'first-year student', 'first year student', null));
+    check(errors, shouldBe(text, 'first year student', 'first-year student', null));
     check(errors, shouldBe(text, 'liveable', 'livable', null));
     check(errors, shouldBe(text, 'member of the Board of Overseers', 'Overseer', null));
     check(errors, shouldBe(text, 'Brattle Theater', 'Brattle Theatre', null));
