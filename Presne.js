@@ -125,11 +125,11 @@ function getCorrections(text) {
     });
 
     // Time
-    var time = /(\d\d?)?:(\d\d)?\s?(am|pm)\b/;
+    var time = /(\d\d?)?:(\d\d)?\s?(am|pm|AM|PM)\b/;
     var match = time.exec(text);
     if (match !== null) {
 
-        if (!match[3].localeCompare("am"))
+        if (!match[3].localeCompare("am") || !match[3].localCompare("AM"))
             var correct = match[1] + ':' + match[2] + ' a.m.';
         else
             var correct = match[1] + ':' + match[2] + ' p.m.';
@@ -137,12 +137,12 @@ function getCorrections(text) {
         // If we have a :00 time.
         if (!match[2].localeCompare("00")) {
             if (!match[1].localeCompare("12")) {
-                if (!match[3].localeCompare("am"))
+                if (!match[3].localeCompare("am") || !match[3].localCompare("AM"))
                     correct = "midnight";
                 else
                     correct = "noon";
             } else {
-                if (!match[3].localeCompare("am"))
+                if (!match[3].localeCompare("am") || !match[3].localCompare("AM"))
                     correct = match[1] + ' a.m.';
                 else
                     correct = match[1] + ' p.m.';
